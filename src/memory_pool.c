@@ -43,3 +43,20 @@ MemoryBlock *block = (MemoryBlock *)ptr;
 block->next = free_list;
 free_list = block;
 }
+
+void memory_pool_print_status(void){
+MemoryBlock *current = free_list;
+int free_blocks = 0;
+
+printf("Memory Pool Status:\n");
+printf("Total Blocks: %d\n", BLOCKS);
+printf("Free block addresses\n");
+
+while(current != NULL){
+printf("%p\n", (void *)current);
+free_blocks++;
+current=current->next;
+}
+printf("Free Blocks:%d\n", free_blocks);
+printf("Allocated Blocks:%d\n", BLOCKS-free_blocks);
+}

@@ -21,5 +21,6 @@ printf("Memory allocation sucess\nThe allocated memory is %p\n",ptr);
 else{
 printf("allocation failed\n");
 }*/
+memory_pool_print_status();
 return 0;
 }
