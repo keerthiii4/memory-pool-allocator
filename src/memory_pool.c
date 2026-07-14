@@ -34,3 +34,12 @@ free_list = free_list->next;
 
 return (void *)block;
 }
+
+void memory_pool_free(void *ptr){
+if(ptr == NULL){
+return;
+}
+MemoryBlock *block = (MemoryBlock *)ptr;
+block->next = free_list;
+free_list = block;
+}
